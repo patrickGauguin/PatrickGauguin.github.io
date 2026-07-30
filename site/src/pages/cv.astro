@@ -1,0 +1,129 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="CV" description="CV for Patrick Gauguin — Computer Science master's student at SDU.">
+  <div class="container page">
+    <span class="eyebrow">CV</span>
+    <h1>Patrick Gauguin</h1>
+    <p class="role">Master's student in Computer Science, SDU</p>
+
+    <div class="prose">
+      <h2>Profile</h2>
+      <p>
+        CS master's student focused on cybersecurity, networks, and web- and
+        distributed programming. Goal-oriented approach without compromising
+        on the result — strongest in project overview and understanding how
+        complex parts of a system connect.
+      </p>
+
+      <h2>Education</h2>
+      <h3>SDU — Southern University of Denmark</h3>
+      <p class="meta">2023 — now</p>
+      <ul>
+        <li>Bachelor in Computer Science</li>
+        <li>Starting Master's in Computer Science, summer 2026</li>
+      </ul>
+
+      <h3>UCL Erhvervsakademi og Professionshøjskole</h3>
+      <p class="meta">2020 — 2022</p>
+      <ul>
+        <li>1st – 5th semester of a professional bachelor programme in physiotherapy</li>
+      </ul>
+
+      <h2>Work experience</h2>
+      <h3>SDU — Techlead, SDU Discovery Grant project</h3>
+      <p class="meta">2025</p>
+      <ul>
+        <li>Assessed the software solutions needed for a humanities research project.</li>
+        <li>Gained real experience with software engineering process and planning larger projects.</li>
+      </ul>
+
+      <h3>Nuuday — Fiber specialist and customer contact</h3>
+      <p class="meta">2022 — 2023</p>
+      <ul>
+        <li>Planned fiber establishment with a focus on customer contact.</li>
+        <li>Set up orders across a range of other required products.</li>
+        <li>Built a foundation in network establishment and client relationships.</li>
+      </ul>
+
+      <h3>Sankt Knud Lavard Skole — Substitute teacher</h3>
+      <p class="meta">2019 — 2020</p>
+      <ul>
+        <li>Substitute teaching across all grade levels.</li>
+        <li>Full-responsibility maternity-leave cover for a 2nd-grade class, January – June 2020.</li>
+        <li>Developed pedagogical tools for knowledge sharing across varied subjects.</li>
+      </ul>
+
+      <h2>Skills</h2>
+      <ul class="skills-grid">
+        <li>Project management</li>
+        <li>Threat analysis &amp; network analysis</li>
+        <li>Web &amp; distributed programming</li>
+        <li>SCRUM &amp; software engineering process</li>
+        <li>HPC</li>
+        <li>Machine learning</li>
+        <li>Functional programming</li>
+        <li>Upscaling with concurrency</li>
+        <li>System programming</li>
+        <li>Large-scale OOP projects</li>
+        <li>Algorithm design</li>
+        <li>Database design</li>
+      </ul>
+    </div>
+
+    <div class="links">
+      <a href="/projects">Projects</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </div>
+</Layout>
+
+<style>
+h1 { font-size: 1.7rem; margin-bottom: 0.3rem; }
+.role {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+}
+.meta {
+  font-family: var(--font-display) !important;
+  font-size: 0.72rem !important;
+  color: var(--text-dim) !important;
+  margin: 0.15rem 0 0.6rem !important;
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.4rem 1.5rem;
+  list-style: none;
+  margin: 0 0 0.9rem !important;
+}
+.skills-grid li {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  padding-left: 0.9rem;
+  position: relative;
+}
+.skills-grid li::before {
+  content: '·';
+  color: var(--accent);
+  position: absolute;
+  left: 0;
+}
+.links {
+  display: flex;
+  gap: 1.4rem;
+  margin-top: 2.5rem;
+}
+.links a {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.links a:hover { color: var(--accent); text-decoration: none; }
+
+@media (max-width: 560px) {
+  .skills-grid { grid-template-columns: 1fr; }
+}
+</style>

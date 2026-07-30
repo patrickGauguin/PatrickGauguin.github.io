@@ -1,0 +1,167 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ProgressionChart from '../components/ProgressionChart.astro';
+
+const projects = [
+  { name: 'Space Cybersecurity SLR', tag: 'research', desc: 'A systematic literature review on the current state of cybersecurity across space infrastructure.' },
+  { name: 'Repository Supply Chain Risk Analyzer', tag: 'security', desc: 'Flags risk in a codebase\'s upstream dependency chain.' },
+  { name: 'Cloud Misconfiguration Scanner', tag: 'security', desc: 'Scans cloud environments for common configuration weaknesses.' },
+  { name: 'DevOps Root Cause Analyzer', tag: 'devops', desc: 'Traces pipeline and infrastructure failures back to their source.' },
+  { name: 'API Attack Detection', tag: 'security', desc: 'Detects abnormal and malicious patterns in API traffic.' },
+  { name: 'Satellite Cybersecurity Platform', tag: 'security', desc: 'Applies the SLR\'s findings to a hands-on satellite security platform.' },
+];
+---
+
+<Layout title="Patrick Gauguin" description="CS master's student at SDU focused on cybersecurity and distributed systems. Olympic weightlifter.">
+  <div class="container page">
+
+    <div class="hero">
+      <div class="hero-text">
+        <h1><strong>Patrick</strong> Gauguin</h1>
+        <p class="role">Master's student in Computer Science, SDU — starting summer 2026</p>
+
+        <p>
+          I focus on cybersecurity, networks, and web- and distributed programming.
+          My work is goal-driven without cutting corners on the result — I try to
+          keep a clear overview of a project and understand how its parts connect
+          before I start building.
+        </p>
+        <p>
+          Right now that means building tools around the software supply chain,
+          cloud configuration, and API security, alongside a literature review on
+          cybersecurity in the space domain.
+        </p>
+        <p>
+          Outside of code, I compete in Olympic weightlifting.
+        </p>
+      </div>
+
+      <div class="hero-photo">
+        <img src="/profile.jpg" alt="Patrick Gauguin" />
+        <p class="address">Odense, Denmark</p>
+      </div>
+    </div>
+
+    <ProgressionChart />
+
+    <section class="projects">
+      <span class="eyebrow">Current projects</span>
+      <ul class="project-list">
+        {projects.map((p) => (
+          <li>
+            <div class="project-row">
+              <span class="project-name">{p.name}</span>
+              <span class="project-tag">{p.tag}</span>
+            </div>
+            <p class="project-desc">{p.desc}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <div class="links">
+      <a href="/projects">All projects</a>
+      <a href="/cv">CV</a>
+      <a href="/contact">Contact</a>
+    </div>
+
+  </div>
+</Layout>
+
+<style>
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 150px;
+  gap: 3rem;
+  align-items: start;
+  padding-top: 1.25rem;
+}
+
+h1 {
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.4rem;
+  line-height: 1.2;
+}
+h1 strong { color: var(--accent); }
+
+.role {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  color: var(--text-dim);
+  margin-bottom: 1.5rem;
+}
+
+.hero-text p {
+  font-size: 0.92rem;
+  margin-bottom: 0.9rem;
+}
+
+.hero-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+.hero-photo img {
+  width: 130px;
+  height: 130px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+}
+.address {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+.projects { margin-top: 1rem; }
+.project-list { list-style: none; }
+.project-list li {
+  padding: 0.9rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.project-list li:first-child { border-top: 1px solid var(--border); }
+.project-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.project-name {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  color: var(--text);
+}
+.project-tag {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  color: var(--accent);
+  white-space: nowrap;
+}
+.project-desc {
+  font-size: 0.85rem;
+  margin-top: 0.35rem;
+  color: var(--text-muted);
+}
+
+.links {
+  display: flex;
+  gap: 1.4rem;
+  margin-top: 2.25rem;
+}
+.links a {
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.links a:hover { color: var(--accent); text-decoration: none; }
+
+@media (max-width: 560px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-photo { flex-direction: row; }
+  .hero-photo img { width: 72px; height: 72px; }
+}
+</style>

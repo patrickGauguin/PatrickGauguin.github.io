@@ -1,0 +1,114 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projects = [
+  {
+    name: 'Space Cybersecurity SLR',
+    tag: 'research',
+    year: '2025 — ongoing',
+    desc: 'A systematic literature review covering the threat, vulnerability, and countermeasure landscape across peer-reviewed research on cybersecurity in space infrastructure.',
+  },
+  {
+    name: 'Repository Supply Chain Risk Analyzer',
+    tag: 'security',
+    year: '2025 — ongoing',
+    desc: 'Analyzes a repository\'s upstream dependency chain to surface supply-chain risk before it reaches production.',
+  },
+  {
+    name: 'Cloud Misconfiguration Scanner',
+    tag: 'security',
+    year: '2025 — ongoing',
+    desc: 'Scans cloud environments for common configuration weaknesses and misapplied defaults.',
+  },
+  {
+    name: 'DevOps Root Cause Analyzer',
+    tag: 'devops',
+    year: '2025 — ongoing',
+    desc: 'Traces pipeline and infrastructure failures back to their originating cause across a DevOps toolchain.',
+  },
+  {
+    name: 'API Attack Detection',
+    tag: 'security',
+    year: '2025 — ongoing',
+    desc: 'Detects abnormal and malicious traffic patterns directed at APIs.',
+  },
+  {
+    name: 'Satellite Cybersecurity Platform',
+    tag: 'security',
+    year: '2025 — ongoing',
+    desc: 'A hands-on platform applying the findings of the space cybersecurity literature review to real satellite security scenarios.',
+  },
+  {
+    name: 'SDU Discovery Grant Project',
+    tag: 'techlead',
+    year: '2025',
+    desc: 'Led the assessment of software solutions needed for a humanities research project — first real exposure to software engineering process and planning at scale.',
+  },
+];
+---
+
+<Layout title="Projects" description="Current and recent projects by Patrick Gauguin, spanning cybersecurity, DevOps, and distributed systems.">
+  <div class="container page">
+    <span class="eyebrow">Projects</span>
+    <h1>What I'm building</h1>
+    <p class="intro">Mostly cybersecurity tooling and research, with some infrastructure and systems work mixed in.</p>
+
+    <ul class="project-list">
+      {projects.map((p) => (
+        <li>
+          <div class="project-row">
+            <h3>{p.name}</h3>
+            <span class="meta">
+              <span class="project-tag">{p.tag}</span>
+              <span class="year">{p.year}</span>
+            </span>
+          </div>
+          <p>{p.desc}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Layout>
+
+<style>
+h1 {
+  font-size: 1.6rem;
+  margin-bottom: 0.6rem;
+}
+.intro {
+  font-size: 0.9rem;
+  margin-bottom: 2.5rem;
+}
+.project-list { list-style: none; }
+.project-list li {
+  padding: 1.25rem 0;
+  border-top: 1px solid var(--border);
+}
+.project-list li:last-child { border-bottom: 1px solid var(--border); }
+.project-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.project-row h3 {
+  font-size: 0.98rem;
+}
+.meta { display: flex; gap: 0.9rem; align-items: baseline; }
+.project-tag {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  color: var(--accent);
+}
+.year {
+  font-family: var(--font-display);
+  font-size: 0.68rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+.project-list p {
+  font-size: 0.88rem;
+  margin-top: 0.5rem;
+}
+</style>

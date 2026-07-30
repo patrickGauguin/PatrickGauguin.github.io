@@ -1,0 +1,51 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+const {
+  title = 'Patrick Gauguin',
+  description = 'CS master\'s student at SDU focused on cybersecurity and distributed systems. Olympic weightlifter.',
+} = Astro.props;
+
+const pathname = Astro.url.pathname;
+const isActive = (href: string) =>
+  href === '/' ? pathname === '/' : pathname.startsWith(href);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={description} />
+  <title>{title === 'Patrick Gauguin' ? 'Patrick Gauguin' : `${title} — Patrick Gauguin`}</title>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <nav>
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">patrick gauguin</a>
+      <ul class="nav-links">
+        <li><a href="/"         class={isActive('/')         ? 'active' : ''}>about</a></li>
+        <li><a href="/projects" class={isActive('/projects') ? 'active' : ''}>projects</a></li>
+        <li><a href="/cv"       class={isActive('/cv')       ? 'active' : ''}>cv</a></li>
+        <li><a href="/contact"  class={isActive('/contact')  ? 'active' : ''}>contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer>
+    <p>© 2026 Patrick Gauguin · <a href="mailto:patrick@ryom.eu">patrick@ryom.eu</a> · Odense, Denmark</p>
+  </footer>
+</body>
+</html>
