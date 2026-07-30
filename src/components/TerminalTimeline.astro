@@ -1,0 +1,71 @@
+---
+// Signature element: a terminal-log style readout of the real timeline
+const entries = [
+  { range: '2019–2020', where: 'sankt knud lavard skole', what: 'substitute teacher' },
+  { range: '2020–2022', where: 'ucl erhvervsakademi',     what: 'physiotherapy, 1st–5th sem.' },
+  { range: '2022–2023', where: 'nuuday',                  what: 'fiber specialist' },
+  { range: '2023–now',  where: 'sdu',                     what: 'bsc computer science' },
+  { range: '2025',      where: 'sdu discovery grant',     what: 'techlead' },
+  { range: '2026',      where: 'sdu',                     what: 'msc computer science (starting)' },
+];
+---
+<div class="log-wrap">
+  <div class="log-head">
+    <span class="dot red"></span><span class="dot amber"></span><span class="dot green"></span>
+    <span class="log-title">history --user patrick</span>
+  </div>
+  <ul class="log-body">
+    {entries.map((e) => (
+      <li>
+        <span class="range">{e.range}</span>
+        <span class="where">{e.where}</span>
+        <span class="what">{e.what}</span>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+.log-wrap {
+  margin: 2.5rem 0;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--bg-2);
+  overflow: hidden;
+}
+.log-head {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+.dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; opacity: 0.6; }
+.dot.red   { background: #e05c5c; }
+.dot.amber { background: var(--accent-2); }
+.dot.green { background: #5cc78a; }
+.log-title {
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  color: var(--text-dim);
+  margin-left: 0.5rem;
+}
+.log-body { list-style: none; padding: 0.5rem 0; }
+.log-body li {
+  display: flex;
+  gap: 1.1rem;
+  padding: 0.4rem 0.9rem;
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  align-items: baseline;
+}
+.log-body li:hover { background: rgba(91, 157, 217, 0.06); }
+.range { color: var(--accent); flex-shrink: 0; width: 90px; }
+.where { color: var(--text); flex-shrink: 0; }
+.what  { color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .log-body li { flex-wrap: wrap; gap: 0.15rem 0.8rem; }
+  .range { width: auto; }
+}
+</style>
